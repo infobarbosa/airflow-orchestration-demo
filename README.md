@@ -1056,7 +1056,7 @@ Para processar o histórico de forma controlada, o caminho é o **backfill**.
 
 ### 7.c. Backfill: processando o primeiro semestre de 2024
 
-O backfill cria DAG runs para um período de *logical dates* (o início de cada intervalo). Processe de janeiro a junho de 2024 (6 execuções), no máximo duas ao mesmo tempo:
+O backfill cria DAG runs para um período de *logical dates* (o início de cada intervalo). Processe de janeiro a junho de 2024 (6 execuções), no máximo duas ao mesmo tempo. Na instância do laboratório, o bloco leva **cerca de 6 minutos**:
 
 ```sh
 # 7.c.1
