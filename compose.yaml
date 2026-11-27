@@ -1,0 +1,21 @@
+#
+# Execução local do laboratório (Apêndice D do README): um container com o
+# code-server, o Airflow 3 (LocalExecutor + PostgreSQL) e um cluster Spark standalone.
+#
+#   docker compose up -d
+#
+# Depois, abra http://localhost:8080 (IDE), http://localhost:8081 (Airflow)
+# e http://localhost:9090 (Spark Master) no navegador.
+#
+name: airflow-orchestration-demo
+services:
+  airflow-lab:
+    container_name: airflow-lab
+    image: ghcr.io/infobarbosa/airflow-lab-docker-image:latest
+    ports:
+      - "8080:8080"   # IDE (code-server)
+      - "8081:8081"   # Airflow (UI e API)
+      - "9090:9090"   # Spark Master UI
+      - "8082:8082"   # Spark Worker UI
+    # Tempo para parar os serviços (Airflow, Spark e PostgreSQL) de forma limpa
+    stop_grace_period: 60s
